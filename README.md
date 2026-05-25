@@ -3,11 +3,11 @@ A portable, on-demand distance measurement tool that tracks ultrasonic wave refl
 
 ---
 ## Demo
-[Project Demo](Portable_Distance_Sensor.gif)
+![Project Demo](Portable_Distance_Sensor.gif)
 
 ---
 ## Circuit
-[Porject Circuit](Portable_Distance_Sensor.PNG)
+![Project Circuit](Portable_Distance_Sensor.PNG)
 
 ## Components
 * 1x Arduino Uno (or compatible microcontroller)
@@ -44,3 +44,17 @@ Inside the measurement execution loop:
 * The flight time is converted to centimeters by multiplying it by the speed of sound ($0.0343\text{ cm/}\mu\text{s}$).
 
 * The system repeats this 50 times inside a `for` loop, adding the values to a data `bucket`. It calculates a stable `avgDis`, clears the LCD, and presents the final value for 5 seconds before resetting.
+
+---
+## Concepts Covered
+* **Time-of-Flight Calculation (ToF):** Measuring the speed-of-sound propagation delays over microsecond scales to derive physical physical distances.
+
+* **Data Smoothing & Noise Reduction:** Accumulating data samples in a tracking variable (`bucket`) to compute an algebraic moving average (`avgDis`), eliminating individual sensor anomalies.
+
+* **On-Demand Execution:** Managing asynchronous loop locks to transition the microchip out of idle states when a mechanical interface interrupt triggers.
+
+* **Microsecond Signal Timing:** Generating precise clock-gated hardware triggers (`delayMicroseconds()`) to meet specific sensor protocol requirements.
+
+---
+## Skills
+`Signal Flight Evaluation` `Data Averaging Algorithms` `Blocking Interface Workflows` `Physical Calibration`
